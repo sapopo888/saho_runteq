@@ -1,4 +1,3 @@
 class MemoriesController < ApplicationController
-  def top
-  end
+  def top; end
 end
