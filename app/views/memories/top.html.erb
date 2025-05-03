@@ -1,10 +1,10 @@
   <div>
     <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center px-4 pt-10">
       <div class="flex flex-wrap items-center mt-32 mb-25">
-        <%= image_tag 'ph_flower-lotus-fill.png', class: "h-28 w-28 mr-4" %>
+        <%= image_tag 'ph_flower-lotus-fill.png', class: "h-16 w-16 md:h-24 md:w-24 mr-4 relative top-1 md:top-2" %> <!-- relative + top-1 で約４px下に移動-->
         <h1 class="text-white text-6xl md:text-8xl font-extrabold">Memory.</h1>
       </div>
-      <hr class="border-t border-white my-4 py-4 w-full"><!-- 白線 -->
+      <hr class="border-t border-white mt-12 py-4 w-full"><!-- 白線 -->
       <p class="text-white text-xl md:text-2xl mb-32 text-center">大切な思い出をオリジナルのアルバムに。</p>
       <%= link_to "ログイン", "#", class: "bg-white text-black px-6 py-2 rounded-lg text-lg font-medium hover:bg-gray-200 mb-8" %>
     
