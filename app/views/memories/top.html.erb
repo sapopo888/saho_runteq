@@ -1,2 +1,14 @@
-<h1>Memories#top</h1>
-<p>Find me in app/views/memories/top.html.erb</p>
+  <div>
+    <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center px-8 pt-10">
+      <div class="flex items-center mr-[500px] mb-32">
+        <%= image_tag 'ph_flower-lotus-fill.png', class: "h-28 w-28 mr-4" %>
+        <h1 class="text-white text-6xl md:text-8xl font-extrabold">Memory.</h1>
+
+      </div>
+      <p class="text-white text-xl md:text-2xl mb-32 mr-96">大切な思い出をオリジナルのアルバムに。</p>
+      <%= link_to "ログイン", "#", class: "bg-white text-black px-6 py-2 rounded-lg text-lg font-medium hover:bg-gray-200 mb-8" %>
+    
+      <%= link_to "パスワードを忘れた方はこちら", "#", class: "text-white underline text-lg mb-8" %>
+      <%= link_to "会員登録", "#", class: "text-white underline text-lg" %>
+    </div>
+  </div>
