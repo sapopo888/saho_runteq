@@ -1,5 +1,5 @@
-.top-body {
-  background-image: url('/images/Rectangle53.jpg');
+#top-body {
+  background-image: url('top.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh; /* 画面の高さいっぱいに表示 */
