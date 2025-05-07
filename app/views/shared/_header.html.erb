@@ -14,9 +14,19 @@
     </div>
 
     <div class='flex justify-end py-6 space-x-6 px-12 md:px-24 text-white'>
-        <%= link_to 'アルバム作成' %>
-        <%= link_to 'アルバム一覧' %>
-        <%= link_to 'マイページ' %>
+        <%= link_to 'アルバム作成', "#", class: ""  %>
+        <%= link_to 'アルバム一覧', "#", class: "" %>
+
+        <!-- dropdown -->
+        <div class="relative group">
+          <button class="focus:outline-none">
+            マイページ
+          </button>
+
+        <div class="absolute right-0 mt-2 w-48 bg-white rounded shadow-lg py-2 z-10 hidden group-hover:block text-gray-800">
+          <%= link_to '会員情報', "#", class: "block px-4 py-2 hover:bg-gray-100" %>
+          <%= link_to 'ログアウト', "destroy_user_session_path", data: { turbo_method: :delete }, class: "block px-4 py-2 hover:bg-gray-100" %>
+        </div>
     </div>
   <% end %>
 </div>
