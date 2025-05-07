@@ -1,0 +1,12 @@
+<h1>アルバム一覧</h1>
+
+<% if @albums.present? %>
+  <% @albums.each do |album| %>
+<ul>
+  <li><%= album.title %></li>
+  <li><%= album.description %></li>
+  <li><%= album.created_at %></li>
+</ul>
+<% else %>
+  "アルバムはまだありません"
+<% end %>
