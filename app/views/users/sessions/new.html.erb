@@ -1,13 +1,13 @@
 <div class="w-full flex justify-center">
-  <div class="bg-white rounded-lg w-full max-w-md p-8">
+  <div class="rounded-lg w-full max-w-xl p-8">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="mb-6 flex items-center">
-        <%= f.label :email, "メールアドレス：", class: "w-2/3 text-gray-700 text-lg md:text-xl" %>
+        <%= f.label :email, "メールアドレス：", class: "w-2/3 text-gray-700 text-lg md:text-xl pl-8" %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-2/3 border border-gray-300 bg-gray-100 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300" %>
       </div>
 
       <div class="mb-6 flex items-center">
-        <%= f.label :password, "パスワード：", class: "w-2/3 text-gray-700 text-lg md:text-xl" %>
+        <%= f.label :password, "パスワード：", class: "w-2/3 text-gray-700 text-lg md:text-xl pl-8" %>
         <%= f.password_field :password, autocomplete: "current-password", class: "w-2/3 border border-gray-300 bg-gray-100 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300" %>
       </div>
 
