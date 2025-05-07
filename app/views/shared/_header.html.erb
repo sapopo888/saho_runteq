@@ -8,7 +8,7 @@
   <% if user_signed_in? %>
     <div class="flex flex-wrap items-center ">
       <%= image_tag 'ph_flower-lotus-fill.png', class: "h-10 w-10 md:h-12 md:w-12 mr-4 relative" %>
-      <%= link_to '#', class:"text-white text-3xl md:text-4xl font-extrabold" do %>
+      <%= link_to albums_path, class:"text-white text-3xl md:text-4xl font-extrabold" do %>
       Memory.</%>
       <% end %>
     </div>
@@ -19,14 +19,38 @@
 
         <!-- dropdown -->
         <div class="relative group">
-          <button class="focus:outline-none">
+          <button class="focus:outline-none" id="js-myPage-button">
             マイページ
           </button>
 
-        <div class="absolute right-0 mt-2 w-48 bg-white rounded shadow-lg py-2 z-10 hidden group-hover:block text-gray-800">
+        <div id="js-dropdown" class="absolute right-0 mt-2 w-48 bg-white rounded shadow-lg py-2 z-10 hidden text-gray-800">
           <%= link_to '会員情報', "#", class: "block px-4 py-2 hover:bg-gray-100" %>
-          <%= link_to 'ログアウト', "destroy_user_session_path", data: { turbo_method: :delete }, class: "block px-4 py-2 hover:bg-gray-100" %>
+          <%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete }, class: "block px-4 py-2 hover:bg-gray-100" %>
         </div>
     </div>
   <% end %>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const button = document.getElementById('js-myPage-button');
+    const dropdown = document.getElementById('js-dropdown')
+
+    button.addEventListener('click', (e) => {
+      e.stopPropagation(); // 他のクリックイベントをストップ
+      dropdown.classList.toggle("hidden");
+    });
+
+    // メニュー外をクリックしたらメニューを閉じる
+    document.addEventListener('click', (e) => {
+      if (!dropdown.classList.contains("hidden")) {
+        dropdown.classList.add("hidden");
+      }
+    });
+
+    // ドロップダウン内クリック時に閉じないようにする
+    dropdown.addEventListener("click", (e) => {
+      e.stopPropagation();
+    });
+  });
+</script>
