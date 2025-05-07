@@ -1,10 +1,4 @@
 <div class="w-full bg-header py-6">
-  <div class="flex flex-wrap items-center pt-6 pl-4 md:pl-16">
-    <%= image_tag 'ph_flower-lotus-fill.png', class: "h-10 w-10 md:h-12 md:w-12 mr-4 relative" %>
-    <%= link_to root_path, class:"text-white text-3xl md:text-4xl font-extrabold" do %>
-      Memory.
-    <% end %>
-  </div>
   <% if user_signed_in? %>
     <div class="flex flex-wrap items-center ">
       <%= image_tag 'ph_flower-lotus-fill.png', class: "h-10 w-10 md:h-12 md:w-12 mr-4 relative" %>
@@ -25,8 +19,15 @@
 
         <div id="js-dropdown" class="absolute right-0 mt-2 w-48 bg-white rounded shadow-lg py-2 z-10 hidden text-gray-800">
           <%= link_to '会員情報', "#", class: "block px-4 py-2 hover:bg-gray-100" %>
-          <%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete }, class: "block px-4 py-2 hover:bg-gray-100" %>
+          <%= button_to 'ログアウト', destroy_user_session_path, method: :delete, class: "block px-4 py-2 hover:bg-gray-100" %>
         </div>
+    </div>
+  <% else %>
+    <div class="flex flex-wrap items-center pt-6 pl-4 md:pl-16">
+      <%= image_tag 'ph_flower-lotus-fill.png', class: "h-10 w-10 md:h-12 md:w-12 mr-4 relative" %>
+      <%= link_to root_path, class:"text-white text-3xl md:text-4xl font-extrabold" do %>
+        Memory.
+      <% end %>
     </div>
   <% end %>
 </div>
