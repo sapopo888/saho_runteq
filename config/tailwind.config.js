@@ -15,6 +15,7 @@ module.exports = {
       colors: {
         header: '#1E4874',
         button: '#86A7DE',
+        change: '#5E89C5',
       },
     },
   },
