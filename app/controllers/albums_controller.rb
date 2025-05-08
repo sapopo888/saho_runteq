@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController
   def index
-    @albums = Album.includes(:user) # includesメソッド：関連するテーブルをまとめてDBから取得
+    @albums = Album.includes(:user).order(created_at: :desc) # includesメソッド：関連するテーブルをまとめてDBから取得
   end
 
   def new
