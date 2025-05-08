@@ -14,7 +14,7 @@ class AlbumsController < ApplicationController
       redirect_to albums_path, status: :see_other, notice: "アルバムを作成しました"
     else
       flash.now[:alert] = "アルバムを作成できませんでした"
-      render :new
+      render :new, status: :unprocessable_entity # 作成失敗した時に偉＾メッセージ表示させるために必要！
     end
 
     def show
