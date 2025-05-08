@@ -7,3 +7,8 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+25.times do |index|
+  user = User.find(1)
+  user.albums.create!(title: "タイトル#{index}", description: "説明#{index}")
+end
