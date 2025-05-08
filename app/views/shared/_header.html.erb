@@ -1,32 +1,64 @@
-<div class="w-full bg-header py-6">
-  <div class="flex flex-wrap items-center pt-6 pl-4 md:pl-16">
-    <%= image_tag 'ph_flower-lotus-fill.png', class: "h-10 w-10 md:h-12 md:w-12 mr-4 relative" %>
-    <%= link_to root_path, class:"text-white text-3xl md:text-4xl font-extrabold" do %>
-      Memory.
-    <% end %>
-  </div>
+<div class="w-full bg-header h-40 flex flex-col justify-end">
   <% if user_signed_in? %>
-    <div class="flex flex-wrap items-center ">
-      <%= image_tag 'ph_flower-lotus-fill.png', class: "h-10 w-10 md:h-12 md:w-12 mr-4 relative" %>
-      <%= link_to '#', class:"text-white text-3xl md:text-4xl font-extrabold" do %>
-      Memory.</%>
-      <% end %>
-    </div>
+    <div class="flex justify-between items-end px-4 md:px-16 pb-4">
+      <!-- ロゴとタイトル -->
+      <div class="flex items-end">
+        <%= image_tag 'ph_flower-lotus-fill.png', class: "h-10 w-10 md:h-12 md:w-12 mr-2 md:mr-3 relative top-0.5 md:top-1" %>
+        <%= link_to albums_path, class:"text-white text-3xl md:text-4xl font-extrabold" do %>
+          Memory.
+        <% end %>
+      </div>
 
-    <div class='flex justify-end py-6 space-x-6 px-12 md:px-24 text-white'>
+      <!-- ナビゲーション -->
+      <div class="flex items-center space-x-6 text-white text-lg relative">
         <%= link_to 'アルバム作成', "#", class: ""  %>
-        <%= link_to 'アルバム一覧', "#", class: "" %>
+        <%= link_to 'アルバム一覧', albums_path, class: "" %>
 
-        <!-- dropdown -->
-        <div class="relative group">
-          <button class="focus:outline-none">
+        <!-- ドロップダウン -->
+        <div class="relative">
+          <button id="js-myPage-button" class="focus:outline-none">
             マイページ
           </button>
-
-        <div class="absolute right-0 mt-2 w-48 bg-white rounded shadow-lg py-2 z-10 hidden group-hover:block text-gray-800">
-          <%= link_to '会員情報', "#", class: "block px-4 py-2 hover:bg-gray-100" %>
-          <%= link_to 'ログアウト', "destroy_user_session_path", data: { turbo_method: :delete }, class: "block px-4 py-2 hover:bg-gray-100" %>
+          <div id="js-dropdown" class="absolute right-0 mt-2 w-48 bg-white rounded shadow-lg py-2 z-10 hidden text-gray-800">
+            <%= link_to '会員情報', "#", class: "block px-4 py-2 hover:bg-gray-100" %>
+            <%= button_to 'ログアウト', destroy_user_session_path, method: :delete, form: { data: { turbo: false } }, class: "block w-full text-left px-4 py-2 hover:bg-gray-100" %>
+          </div>
         </div>
+      </div>
+    </div>
+  <% else %>
+    <!-- 非ログイン時 -->
+    <div class="flex justify-between items-end px-4 md:px-16 pb-4">
+      <div class="flex items-end">
+        <%= image_tag 'ph_flower-lotus-fill.png', class: "h-10 w-10 md:h-12 md:w-12 mr-4" %>
+        <%= link_to root_path, class:"text-white text-3xl md:text-4xl font-extrabold" do %>
+          Memory.
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const button = document.getElementById('js-myPage-button');
+    const dropdown = document.getElementById('js-dropdown')
+
+    button.addEventListener('click', (e) => {
+      e.stopPropagation(); // 他のクリックイベントをストップ
+      dropdown.classList.toggle("hidden");
+    });
+
+    // メニュー外をクリックしたらメニューを閉じる
+    document.addEventListener('click', (e) => {
+      if (!dropdown.classList.contains("hidden")) {
+        dropdown.classList.add("hidden");
+      }
+    });
+
+    // ドロップダウン内クリック時に閉じないようにする
+    dropdown.addEventListener("click", (e) => {
+      e.stopPropagation();
+    });
+  });
+</script>

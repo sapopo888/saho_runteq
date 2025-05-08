@@ -1,0 +1,33 @@
+<div class="w-full flex flex-col items-center">
+  <h1 class='text-2xl font-bold mb-6'>アルバム一覧</h1>
+  
+  <% if @albums.present? %>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <% @albums.each do |album| %>
+        <div class="border rounded-lg p-4 shadow hover:shadow-md transition">
+          <p class="text-lg font-semibold flex justify-between items-center">
+            <%= album.title %>
+            <!-- 編集アイコン（適宜ルーティング追加） -->
+            <%= link_to edit_album_path(album), class: "text-gray-500 hover:text-gray-700" do %>
+              ✏️
+            <% end %>
+          </p>
+          <p class="text-sm text-gray-600 mt-2">
+            <%= album.description %>
+          </p>
+          <p class="text-sm text-gray-400 mt-2">
+            作成日: <%= l(album.created_at.to_date, format: :long) %>
+          </p>
+          <div class="text-right mt-2">
+            <!-- 削除ボタン -->
+            <%= link_to album_path(album), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "text-red-500 hover:text-red-700" do %>
+              🗑️
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p class="text-gray-500">アルバムはまだありません</p>
+  <% end %>
+</div>
