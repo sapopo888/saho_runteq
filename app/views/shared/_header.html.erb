@@ -20,6 +20,7 @@
             マイページ
           </button>
           <div id="js-dropdown" class="absolute right-0 mt-2 w-48 bg-white rounded shadow-lg py-2 z-10 hidden text-gray-800">
+            <div class="block px-4 py-2 text-blue-900 font-bold underline"><%= current_user.name %> さん</div>
             <%= link_to '会員情報', "#", class: "block px-4 py-2 hover:bg-gray-100" %>
             <%= button_to 'ログアウト', destroy_user_session_path, method: :delete, form: { data: { turbo: false } }, class: "block w-full text-left px-4 py-2 hover:bg-gray-100" %>
           </div>
@@ -28,9 +29,9 @@
     </div>
   <% else %>
     <!-- 非ログイン時 -->
-    <div class="flex justify-between items-end px-4 md:px-16 pb-4">
+    <div class="flex justify-between h-40 items-end px-4 md:px-16 pb-4">
       <div class="flex items-end">
-        <%= image_tag 'ph_flower-lotus-fill.png', class: "h-10 w-10 md:h-12 md:w-12 mr-4" %>
+        <%= image_tag 'ph_flower-lotus-fill.png', class: "h-10 w-10 md:h-12 md:w-12 mr-2 md:mr-3 relative top-0.5 md:top-1" %>
         <%= link_to root_path, class:"text-white text-3xl md:text-4xl font-extrabold" do %>
           Memory.
         <% end %>

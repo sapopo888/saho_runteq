@@ -19,7 +19,10 @@
   </head>
 
   <body>
-    <%= render 'shared/header' %>
+    <!-- TOP画面のみヘッダー表示しない -->
+    <% unless controller_name == 'memories' && action_name == 'top' %>
+      <%= render 'shared/header' %>
+    <% end %>
 
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
