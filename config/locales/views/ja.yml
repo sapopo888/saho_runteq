@@ -7,3 +7,6 @@ ja:
     label:
     email: メールアドレス
     password: パスワード
+  registrations:
+    new:
+      title: 会員登録
