@@ -1,5 +1,5 @@
 <div class="w-full flex flex-col items-center">
-  <h1 class='text-2xl font-bold mb-6'>アルバム一覧</h1>
+  <h1 class='text-2xl font-bold mb-6'><%= t('albums.index.title') %></h1>
 
   <% if @albums.present? %>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -37,6 +37,6 @@
       <% end %>
     </div>
   <% else %>
-    <p class="text-gray-500">アルバムはまだありません</p>
+    <p class="text-gray-500"><%= t('albums.index.no_album') %></p>
   <% end %>
 </div>

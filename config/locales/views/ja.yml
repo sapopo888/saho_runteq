@@ -1,4 +1,10 @@
 ja:
+  header:
+    create: アルバム作成
+    index: アルバム一覧
+    my_page: マイページ
+    account: 会員情報
+    logout: ログアウト
   helpers:
     submit:
       create: 登録
@@ -12,7 +18,9 @@ ja:
       message: 大切な思い出をオリジナルのアルバムに。
   albums:
     index:
+      title: アルバム一覧
       created_at: 作成日
+      no_album: アルバムはまだありません
   errors:
     messages:
       blank: を入力してください。
