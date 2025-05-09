@@ -5,8 +5,8 @@ ja:
       submit: 保存
       update: 更新
     label:
-    email: メールアドレス
-    password: パスワード
+      email: メールアドレス
+      password: パスワード
   registrations:
     new:
       title: 会員登録
