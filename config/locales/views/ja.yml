@@ -7,6 +7,9 @@ ja:
     label:
       email: メールアドレス
       password: パスワード
+  memories:
+    top:
+      message: 大切な思い出をオリジナルのアルバムに。
   registrations:
     new:
       title: 会員登録
