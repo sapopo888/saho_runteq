@@ -6,5 +6,5 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   has_many :albums, dependent: :destroy
-  has_may :photos, dependent: :destroy
+  has_many :photos, dependent: :destroy
 end
