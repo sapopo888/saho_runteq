@@ -11,10 +11,10 @@ class AlbumsController < ApplicationController
     @album = current_user.albums.build(album_params)
     if @album.save
       # ここあとで変更する
-      redirect_to albums_path, status: :see_other, notice: "アルバムを作成しました"
+      redirect_to albums_path, status: :see_other, notice: t('defaults.flash_message.created')
     else
-      flash.now[:alert] = "アルバムを作成できませんでした"
-      render :new, status: :unprocessable_entity # 作成失敗した時に偉＾メッセージ表示させるために必要！
+      flash.now[:alert] = t('defaults.flash_message.not_created')
+      render :new, status: :unprocessable_entity # 作成失敗した時にエラーメッセージ表示させるために必要！
     end
 
     def show

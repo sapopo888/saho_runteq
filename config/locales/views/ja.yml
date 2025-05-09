@@ -1,4 +1,16 @@
 ja:
+  defaults:
+    create: 作成
+    edit: 編集
+    show: 詳細
+    delete: 削除
+    delete_confirm: 削除しますか？
+    flash_message:
+      created: アルバムを作成しました
+      not_created: アルバムを作成できませんでした
+      updated: アルバムを更新しました
+      not_updated: アルバムを更新できませんでした
+      deleted: アルバムを削除しました
   header:
     create: アルバム作成
     index: アルバム一覧
