@@ -10,9 +10,6 @@ ja:
   memories:
     top:
       message: 大切な思い出をオリジナルのアルバムに。
-  registrations:
-    new:
-      title: 会員登録
   errors:
     messages:
       blank: を入力してください。
