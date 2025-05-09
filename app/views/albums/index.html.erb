@@ -1,5 +1,5 @@
 <div class="w-full flex flex-col items-center">
-  <h1 class='text-2xl font-bold mb-6'>アルバム一覧</h1>
+  <h1 class='text-2xl font-bold mb-6'><%= t('albums.index.title') %></h1>
 
   <% if @albums.present? %>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -20,7 +20,7 @@
               <% end %>
             </p>
             <!-- 削除ボタン（ゴミ箱アイコン）（適宜ルーティング追加） -->
-            <%= link_to "#", id: "button-delete-#{album.id}", data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" }, class: "inline-flex items-center justify-center w-8 h-8 rounded-full hover:bg-gray-200" do %>
+            <%= link_to "#", id: "button-delete-#{album.id}", data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') }, class: "inline-flex items-center justify-center w-8 h-8 rounded-full hover:bg-gray-200" do %>
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 hover:text-gray-900" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M6 2a1 1 0 011-1h6a1 1 0 011 1v1h3a1 1 0 110 2h-1v12a2 2 0 01-2 2H5a2 2 0 01-2-2V5H2a1 1 0 110-2h3V2zm2 4a1 1 0 012 0v8a1 1 0 11-2 0V6zm4 0a1 1 0 012 0v8a1 1 0 11-2 0V6z" clip-rule="evenodd" />
               </svg>
@@ -31,12 +31,12 @@
             <%= album.description %>
           </p>
           <p class="text-sm text-gray-400 mt-2">
-            作成日: <%= l(album.created_at.to_date, format: :long) %>
+            <%= t('albums.index.created_at') %>: <%= l(album.created_at.to_date, format: :long) %>
           </p>
         </div>
       <% end %>
     </div>
   <% else %>
-    <p class="text-gray-500">アルバムはまだありません</p>
+    <p class="text-gray-500"><%= t('albums.index.no_album') %></p>
   <% end %>
 </div>

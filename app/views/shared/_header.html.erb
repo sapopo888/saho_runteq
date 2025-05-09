@@ -11,18 +11,18 @@
 
       <!-- ナビゲーション -->
       <div class="flex items-center space-x-6 text-white text-lg relative">
-        <%= link_to 'アルバム作成', new_album_path, class: ""  %>
-        <%= link_to 'アルバム一覧', albums_path, class: "" %>
+        <%= link_to t('header.create'), new_album_path, class: ""  %>
+        <%= link_to t('header.index'), albums_path, class: "" %>
 
         <!-- ドロップダウン -->
         <div class="relative">
           <button id="js-myPage-button" class="focus:outline-none">
-            マイページ
+            <%= t('header.my_page') %>
           </button>
           <div id="js-dropdown" class="absolute right-0 mt-2 w-48 bg-white rounded shadow-lg py-2 z-10 hidden text-gray-800">
             <div class="block px-4 py-2 text-blue-900 font-bold underline"><%= current_user.name %> さん</div>
-            <%= link_to '会員情報', "#", class: "block px-4 py-2 hover:bg-gray-100" %>
-            <%= button_to 'ログアウト', destroy_user_session_path, method: :delete, form: { data: { turbo: false } }, class: "block w-full text-left px-4 py-2 hover:bg-gray-100" %>
+            <%= link_to t('header.account'), "#", class: "block px-4 py-2 hover:bg-gray-100" %>
+            <%= button_to t('header.logout'), destroy_user_session_path, method: :delete, form: { data: { turbo: false } }, class: "block w-full text-left px-4 py-2 hover:bg-gray-100" %>
           </div>
         </div>
       </div>

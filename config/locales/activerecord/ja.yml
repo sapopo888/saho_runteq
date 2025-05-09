@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    models:
+      album: アルバム
+    attributes:
+      album:
+        title: タイトル
+        description: 説明
+  date:
+    formats:
+      default: "%Y/%m/%d"
+      short: "%m/%d"
+      long: "%Y年%m月%d日"

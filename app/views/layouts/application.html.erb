@@ -24,6 +24,13 @@
       <%= render 'shared/header' %>
     <% end %>
 
+    <!-- Deviseのflashメッセージ表示 -->
+    <% flash.each do |key, message| %>
+      <div class="bg-green-100 text-green-800 px-4 py-2 rounded shadow z-50">
+        <%= message %>
+      </div>
+    <% end %>
+
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
     </main>
