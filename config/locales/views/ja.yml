@@ -10,6 +10,9 @@ ja:
   memories:
     top:
       message: 大切な思い出をオリジナルのアルバムに。
+  albums:
+    index:
+      created_at: 作成日
   errors:
     messages:
       blank: を入力してください。

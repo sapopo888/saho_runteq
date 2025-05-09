@@ -31,7 +31,7 @@
             <%= album.description %>
           </p>
           <p class="text-sm text-gray-400 mt-2">
-            作成日: <%= l(album.created_at.to_date, format: :long) %>
+            <%= t('albums.index.created_at') %>: <%= l(album.created_at.to_date, format: :long) %>
           </p>
         </div>
       <% end %>
