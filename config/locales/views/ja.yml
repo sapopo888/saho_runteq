@@ -13,3 +13,6 @@ ja:
   registrations:
     new:
       title: 会員登録
+  errors:
+    messages:
+      blank: を入力してください。

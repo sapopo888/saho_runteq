@@ -1,7 +1,7 @@
 ja:
   activerecord:
     models:
-      album:
+      album: アルバム
     attributes:
       album:
         title: タイトル
