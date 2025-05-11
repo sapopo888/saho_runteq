@@ -1,7 +1,7 @@
 class CreatePhotos < ActiveRecord::Migration[7.2]
   def change
     create_table :photos do |t|
-      t.string :images
+      t.json :images
       t.text :comment
       t.references :user, foreign_key: true
       

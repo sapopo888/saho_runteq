@@ -24,7 +24,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_05_09_145156) do
   end
 
   create_table "photos", force: :cascade do |t|
-    t.string "images"
+    t.json "images"
     t.text "comment"
     t.bigint "user_id"
     t.datetime "created_at", null: false
