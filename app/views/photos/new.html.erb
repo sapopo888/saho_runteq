@@ -1,0 +1,4 @@
+<% photo.images.each do |image| %>
+  <%= hidden_field :photo, :images, multiple: true, value: image.identifier %>
+<% end %>
+<%= form.file_field :images, multiple: true %>

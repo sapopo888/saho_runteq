@@ -17,6 +17,6 @@ Rails.application.routes.draw do
   root "memories#top"
 
   resources :albums, only: %i[index new create]  do
-    resources :photos, only: %i[new create], shallow: true
+    resources :photos, only: %i[new create show], shallow: true
   end
 end
