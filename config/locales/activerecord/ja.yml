@@ -9,7 +9,6 @@ ja:
         description: 説明
         comment: コメント
         images: 写真
-      photo
   date:
     formats:
       default: "%Y/%m/%d"
