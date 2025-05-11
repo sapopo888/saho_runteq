@@ -2,10 +2,14 @@ ja:
   activerecord:
     models:
       album: アルバム
+      photo: 写真
     attributes:
       album:
         title: タイトル
         description: 説明
+        comment: コメント
+        images: 写真
+      photo
   date:
     formats:
       default: "%Y/%m/%d"
