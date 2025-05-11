@@ -1,24 +1,31 @@
-<div class="w-full flex flex-col items-center">
-  <h1 class="text-xl font-bold mb-4">写真アップロード</h1>
-  
-  <%= form_with url: album_photos_path(@album), multipart: true, method: :post, id: "upload-form", local: true do %>
-    <!-- ファイル選択 -->
-    <div class="mb-4">
-      <label class="block mb-2 font-semibold">画像を選択（複数可）</label>
-      <input type="file" name="images[]" id="image-input" multiple accept="image/*" class="border p-2 w-full">
-    </div>
-  
-    <!-- アルバムIDを隠しフィールドとして追加 -->
-    <%= hidden_field_tag "photo[album_id]", @album.id %>
-  
-    <!-- 動的に生成される画像プレビュー + コメント -->
-    <div id="preview-area" class="space-y-6"></div>
-  
-    <!-- 送信ボタン -->
-    <div class="mt-6">
-      <%= submit_tag "アップロード", class: "bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded" %>
-    </div>
-  <% end %>
+<div class="w-full flex flex-col items-center px-4">
+  <!-- タイトル -->
+  <h1 class="text-xl font-bold mb-2 text-gray-800 text-center">アルバム名：<%= @album.title %></h1>
+  <div class="border-b border-gray-300 text-2xl font-semibold mb-6 text-gray-600">写真アップロード</div>
+
+  <!-- フォーム本体 -->
+  <div class="w-full max-w-xl bg-white p-6">
+    <%= form_with url: album_photos_path(@album), multipart: true, method: :post, id: "upload-form", local: true, class: "space-y-6" do %>
+      
+      <!-- ファイル選択 -->
+      <div>
+        <label class="block mb-2 text-lg font-medium text-gray-700">画像を選択（複数可）</label>
+        <input type="file" name="images[]" id="image-input" multiple accept="image/*"
+               class="w-full border border-gray-300 bg-gray-100 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300">
+      </div>
+
+      <!-- アルバムID（hidden） -->
+      <%= hidden_field_tag "photo[album_id]", @album.id %>
+
+      <!-- プレビュー -->
+      <div id="preview-area" class="space-y-6"></div>
+
+      <!-- 送信ボタン -->
+      <div class="flex justify-center">
+        <%= submit_tag "アップロード", class: "w-1/2 bg-button hover:bg-change text-white font-semibold py-2 rounded-lg text-lg" %>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <!-- JavaScript：画像プレビュー＆コメント欄動的生成 -->
