@@ -1,4 +1,5 @@
 class Photo < ApplicationRecord
   belongs_to :user
   validates :comment, length: { maximum: 65_535 }
+  mount_uploaders :images, ImageUploader
 end
