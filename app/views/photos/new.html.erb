@@ -1,4 +1,48 @@
-<% photo.images.each do |image| %>
-  <%= hidden_field :photo, :images, multiple: true, value: image.identifier %>
-<% end %>
-<%= form.file_field :images, multiple: true %>
+<div class="w-full flex flex-col items-center">
+  <h1 class="text-xl font-bold mb-4">写真アップロード</h1>
+  
+  <%= form_with url: album_photos_path(@album), multipart: true, method: :post, id: "upload-form", local: true do %>
+    <!-- ファイル選択 -->
+    <div class="mb-4">
+      <label class="block mb-2 font-semibold">画像を選択（複数可）</label>
+      <input type="file" name="images[]" id="image-input" multiple accept="image/*" class="border p-2 w-full">
+    </div>
+  
+    <!-- アルバムIDを隠しフィールドとして追加 -->
+    <%= hidden_field_tag "photo[album_id]", @album.id %>
+  
+    <!-- 動的に生成される画像プレビュー + コメント -->
+    <div id="preview-area" class="space-y-6"></div>
+  
+    <!-- 送信ボタン -->
+    <div class="mt-6">
+      <%= submit_tag "アップロード", class: "bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded" %>
+    </div>
+  <% end %>
+</div>
+
+<!-- JavaScript：画像プレビュー＆コメント欄動的生成 -->
+<script>
+  document.getElementById('image-input').addEventListener('change', function (e) {
+    const previewArea = document.getElementById('preview-area');
+    previewArea.innerHTML = ""; // 既存プレビュー削除
+
+    Array.from(e.target.files).forEach((file, index) => {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const previewBlock = document.createElement("div");
+        previewBlock.className = "flex items-start gap-4";
+
+        previewBlock.innerHTML = `
+          <img src="${e.target.result}" class="w-32 h-32 object-cover rounded border" />
+          <div>
+            <label class="block font-semibold mb-1">コメント</label>
+            <input type="text" name="comments[]" class="border p-2 w-64" placeholder="コメントを入力">
+          </div>
+        `;
+        previewArea.appendChild(previewBlock);
+      };
+      reader.readAsDataURL(file);
+    });
+  });
+</script>

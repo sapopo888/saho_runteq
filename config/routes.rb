@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "memories#top"
 
-  resources :albums, only: %i[index new create]  do
+  resources :albums, only: %i[index new create show]  do
     resources :photos, only: %i[new create show], shallow: true
   end
 end
