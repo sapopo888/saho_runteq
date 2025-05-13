@@ -1,0 +1,10 @@
+<div id="top-body" class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center px-4 pt-10">
+  <div class="flex flex-wrap items-center mt-16 mb-20">
+    <%= image_tag 'ph_flower-lotus-fill.png', class: "h-16 w-16 md:h-24 md:w-24 mr-4 relative top-1 md:top-2" %> <!-- relative + top-1 で約４px下に移動-->
+    <h1 class="text-white text-6xl md:text-8xl font-extrabold">Memory.</h1>
+  </div>
+  <hr class="border-t border-white pb-2 w-full mb-16"><!-- 白線 -->
+  <p class="text-white text-xl md:text-2xl mt-4 mb-20 text-center"><%= t('memories.top.message') %></p>
+  <%= link_to t('devise.sessions.new.sign_in'), new_user_session_path, class: "bg-white text-black px-6 py-2 rounded-lg text-md md:text-lg font-medium hover:bg-gray-200 mb-8" %>
+  <%= link_to t('devise.registrations.new.title'),  new_user_registration_path, class: "text-white underline text-md md:text-lg text-center" %>
+</div>
