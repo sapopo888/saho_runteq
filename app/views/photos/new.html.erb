@@ -1,0 +1,53 @@
+<div class="w-full flex flex-col items-center px-4">
+
+  <h1 class="text-xl font-bold mb-2 text-gray-800 text-center"><%= t('photos.new.label') %>：<%= @album.title %></h1>
+  <div class="border-b border-gray-300 text-2xl font-semibold mb-6 text-gray-600"><%= t('photos.new.title') %></div>
+
+  <div class="w-full max-w-xl bg-white p-6">
+    <%= form_with url: album_photos_path(@album), multipart: true, method: :post, id: "upload-form", local: true, class: "space-y-6" do %>
+      
+      <!-- ファイル選択 -->
+      <div>
+        <label class="block mb-2 text-lg font-medium text-gray-700"><%= t('photos.new.choice') %></label>
+        <input type="file" name="images[]" id="image-input" multiple accept="image/*"
+               class="w-full border border-gray-300 bg-gray-100 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300">
+      </div>
+
+      <!-- アルバムID（hidden） -->
+      <%= hidden_field_tag "photo[album_id]", @album.id %>
+
+      <!-- プレビュー -->
+      <div id="preview-area" class="space-y-6"></div>
+
+      <div class="flex justify-center">
+        <%= submit_tag t('photos.new.upload'), class: "w-1/2 bg-button hover:bg-change text-white font-semibold py-2 rounded-lg text-lg" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<!-- JavaScript：画像プレビュー＆コメント欄動的生成 -->
+<script>
+  document.getElementById('image-input').addEventListener('change', function (e) {
+    const previewArea = document.getElementById('preview-area');
+    previewArea.innerHTML = ""; // 既存プレビュー削除
+
+    Array.from(e.target.files).forEach((file, index) => {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const previewBlock = document.createElement("div");
+        previewBlock.className = "flex items-start gap-4";
+
+        previewBlock.innerHTML = `
+          <img src="${e.target.result}" class="w-32 h-32 object-cover rounded border" />
+          <div>
+            <label class="block font-semibold mb-1">コメント</label>
+            <input type="text" name="comments[]" class="border p-2 w-64" placeholder="コメントを入力">
+          </div>
+        `;
+        previewArea.appendChild(previewBlock);
+      };
+      reader.readAsDataURL(file);
+    });
+  });
+</script>
