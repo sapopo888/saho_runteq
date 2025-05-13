@@ -1,0 +1,15 @@
+<% if resource.errors.any? %>
+  <div class="bg-green-100 border border-green-500 text-green-700 p-4 mb-5" role=™alert™>
+    <p class="font_semibold">
+      <%= I18n.t("errors.messages.not_saved",
+                 count: resource.errors.count,
+                 resource: resource.class.model_name.human.downcase)
+       %>
+    </p>
+    <ul>
+      <% resource.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
