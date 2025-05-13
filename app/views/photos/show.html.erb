@@ -1,0 +1,10 @@
+<% if @album.photos.present? %>
+  <%  @album.photos.each do |photo| %>
+    <% photo.images.each do |image| %>
+      <div class="inline-block m-2">
+        <%= image_tag image_url %>
+        <p class="text-sm mt-1 text-gray-600"><%= photo.comment %></p>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

@@ -1,0 +1,7 @@
+<% if @album.photos.present? %>
+  <%  @album.photos.each do |photo| %>
+    <% photo.images.each do |image| %>
+      <%= image_tag image.url, class: "w-48 h-auto m-2 rounded" %>
+    <% end %>
+  <% end %>
+<% end %>
