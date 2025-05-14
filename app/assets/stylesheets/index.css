@@ -1,0 +1,13 @@
+#index-body {
+  background-image: url('Rectangle53.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh; /* 画面の高さいっぱいに表示 */
+  width: 100%;
+  background-position: center;
+  position: relative;
+}
+
+@media screen and (max-width: 767px) {
+  font-size: 2rem;
+}
